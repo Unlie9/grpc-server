@@ -10,3 +10,4 @@ class Todo(Table, db=DB):
     name = Varchar()
     completed = Boolean(default=False)
     day = Integer(default=0)
+    

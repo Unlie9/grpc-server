@@ -19,7 +19,42 @@ message CreateTodoResponse {
     Todo todo = 1;
 }
 
+message UpdateTodoRequest {
+    uint64 id = 1;
+    string name = 2;
+    bool completed = 3;
+}
+
+message UpdateTodoResponse {
+    Todo todo = 1;
+}
+
+message DeleteTodoRequest {
+    uint64 id = 1;
+}
+
+message DeleteTodoResponse {
+    bool success = 1;
+}
+
+message GetTodoRequest {}
+
+message GetTodoResponse{
+    repeated Todo todos = 1;
+}
+
+message RetrieveTodoRequest {
+    uint64 id = 1;
+}
+
+message RetrieveTodoResponse {
+    optional Todo todo = 1;
+}
 
 service TodoService {
     rpc CreateTodo(CreateTodoRequest) returns (CreateTodoResponse);
+    rpc UpdateTodo(UpdateTodoRequest) returns (UpdateTodoResponse);
+    rpc DeleteTodo(DeleteTodoRequest) returns (DeleteTodoResponse);
+    rpc GetTodo(GetTodoRequest) returns (GetTodoResponse);
+    rpc RetrieveTodo(RetrieveTodoRequest) returns (RetrieveTodoResponse);
 }
