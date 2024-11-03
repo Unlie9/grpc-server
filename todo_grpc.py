@@ -10,6 +10,5 @@ if __name__ == "__main__":
     logging.info("Starting gRPC server...")
     try:
         asyncio.run(run(TODO_GRPC_SERVER_ADDR))
-        logging.info("gRPC server is running on %s", TODO_GRPC_SERVER_ADDR)
     except Exception as e:
         logging.error("Failed to start gRPC server: %s", e)

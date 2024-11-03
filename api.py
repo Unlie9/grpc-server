@@ -1,5 +1,5 @@
 import typing as t
-from fastapi import Depends, FastAPI, status, HTTPException, Security,Query
+from fastapi import Depends, FastAPI, status, HTTPException, Security, Query
 from fastapi.security.api_key import APIKeyHeader
 from fastapi.responses import JSONResponse
 from clients import grpc_todo_client
@@ -31,7 +31,7 @@ async def create_todo(
                 name=name,
                 completed=completed,
                 day=day,
-            ), timeout=10
+            ), timeout=5
         )
     except AioRpcError as e:
         raise HTTPException(status_code=400, detail=e.details())
